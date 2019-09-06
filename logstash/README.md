@@ -16,8 +16,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`7.3.1`](https://github.com/docker-library/logstash/blob/040afba995876cf26184ef0036b89c65df200971/7/Dockerfile)
--	[`6.8.3`](https://github.com/docker-library/logstash/blob/346baa394828982908410b99d4d7fe25e07153e3/6/Dockerfile)
+**No supported tags found!**
+
+It is very likely that `logstash` does not support the currently selected architecture (`ppc64le`).
 
 # Quick reference
 
