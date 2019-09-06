@@ -19,6 +19,8 @@ WARNING:
 -	[`7.3.1`](https://github.com/docker-library/logstash/blob/040afba995876cf26184ef0036b89c65df200971/7/Dockerfile)
 -	[`6.8.3`](https://github.com/docker-library/logstash/blob/346baa394828982908410b99d4d7fe25e07153e3/6/Dockerfile)
 
+[![amd64/logstash build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/amd64/job/logstash.svg?label=amd64/logstash%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/amd64/job/logstash/)
+
 # Quick reference
 
 -	**Where to get help**:  

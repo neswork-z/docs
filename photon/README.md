@@ -20,6 +20,8 @@ WARNING:
 -	[`1.0`, `1.0-20190823`](https://github.com/vmware/photon-docker-image/blob/690d8340cc834b1be31467a7dc13156aeb6e6452/docker/Dockerfile)
 -	[`2.0`, `2.0-20190816`](https://github.com/vmware/photon-docker-image/blob/5017897e926078347f1972738d86b3a7dfcaf4c7/docker/Dockerfile)
 
+[![amd64/photon build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/amd64/job/photon.svg?label=amd64/photon%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/amd64/job/photon/)
+
 # Quick reference
 
 -	**Where to get help**:  
@@ -57,7 +59,7 @@ See the [FAQ](http://vmware.github.io/photon/assets/files/photon_faqs.pdf) for m
 
 ## How to use these images
 
-Photon OS images are intended for use in the **FROM** field of an application's `Dockerfile`. For example, to use VMware Photon 1.0GA as the base of an image, specify `FROM photon:1.0GA`.
+Photon OS images are intended for use in the **FROM** field of an application's `Dockerfile`. For example, to use VMware Photon 1.0GA as the base of an image, specify `FROM amd64/photon:1.0GA`.
 
 ## Support
 
