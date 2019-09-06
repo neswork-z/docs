@@ -16,22 +16,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`8.2.0`, `8.2`, `8`, `latest`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/8.2/Dockerfile)
--	[`8.2.0-slim`, `8.2-slim`, `8-slim`, `slim`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/8.2/slim/Dockerfile)
--	[`8.1.1`, `8.1`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/8.1/Dockerfile)
--	[`8.1.1-slim`, `8.1-slim`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/8.1/slim/Dockerfile)
--	[`8.0.0`, `8.0`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/8.0/Dockerfile)
--	[`8.0.0-slim`, `8.0-slim`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/8.0/slim/Dockerfile)
--	[`7.7.2`, `7.7`, `7`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/7.7/Dockerfile)
--	[`7.7.2-slim`, `7.7-slim`, `7-slim`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/7.7/slim/Dockerfile)
--	[`7.6.0`, `7.6`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/7.6/Dockerfile)
--	[`7.6.0-slim`, `7.6-slim`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/7.6/slim/Dockerfile)
--	[`7.5.0`, `7.5`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/7.5/Dockerfile)
--	[`7.5.0-slim`, `7.5-slim`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/7.5/slim/Dockerfile)
--	[`6.6.6`, `6.6`, `6`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/6.6/Dockerfile)
--	[`6.6.6-slim`, `6.6-slim`, `6-slim`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/6.6/slim/Dockerfile)
--	[`5.5.5`, `5.5`, `5`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/5.5/Dockerfile)
--	[`5.5.5-slim`, `5.5-slim`, `5-slim`](https://github.com/docker-solr/docker-solr/blob/a89957c6b5242ec4b72e539e39cafe27b7e39a6d/5.5/slim/Dockerfile)
+**No supported tags found!**
+
+It is very likely that `solr` does not support the currently selected architecture (`arm32v6`).
 
 # Quick reference
 
@@ -75,7 +62,7 @@ Learn more on [Apache Solr homepage](http://lucene.apache.org/solr/) and in the 
 To run a single Solr server:
 
 ```console
-$ docker run --name my_solr -d -p 8983:8983 -t solr
+$ docker run --name my_solr -d -p 8983:8983 -t arm32v6/solr
 ```
 
 Then with a web browser go to `http://localhost:8983/` to see the Admin Console (adjust the hostname for your docker host).
@@ -101,7 +88,7 @@ In the UI, find the "Core selector" popup menu and select the "gettingstarted" c
 For convenience, there is a single command that starts Solr, creates a collection called "demo", and loads sample data into it:
 
 ```console
-$ docker run --name solr_demo -d -P solr solr-demo
+$ docker run --name solr_demo -d -P arm32v6/solr solr-demo
 ```
 
 ## Loading your own data
@@ -116,7 +103,7 @@ $ docker exec -it --user=solr my_solr bin/post -c gettingstarted mydata.xml
 or by mounting a host directory as a volume:
 
 ```console
-$ docker run --name my_solr -d -p 8983:8983 -t -v $HOME/mydata:/opt/solr/mydata solr
+$ docker run --name my_solr -d -p 8983:8983 -t -v $HOME/mydata:/opt/solr/mydata arm32v6/solr
 $ docker exec -it --user=solr my_solr bin/solr create_core -c gettingstarted
 $ docker exec -it --user=solr my_solr bin/post -c gettingstarted mydata/mydata.xml
 ```
@@ -130,7 +117,7 @@ In addition to the `docker exec` method explained above, you can create a core a
 If you run:
 
 ```console
-$ docker run -d -P solr solr-create -c mycore
+$ docker run -d -P arm32v6/solr solr-create -c mycore
 ```
 
 the container will:
@@ -144,7 +131,7 @@ the container will:
 You can combine this with mounted volumes to pass in core configuration from your host:
 
 ```console
-$ docker run -d -P -v $PWD/myconfig:/myconfig solr solr-create -c mycore -d /myconfig
+$ docker run -d -P -v $PWD/myconfig:/myconfig arm32v6/solr solr-create -c mycore -d /myconfig
 ```
 
 When using the `solr-create` command, Solr will log to the standard docker log (inspect with `docker logs`), and the collection creation will happen in the background and log to `/opt/docker-solr/init.log`.
@@ -154,8 +141,8 @@ This first way closely mirrors the manual core creation steps and uses Solr's ow
 The second way of creating a core at start time is using the `solr-precreate` command. This will create the core in the filesystem before running Solr. You should pass it the core name, and optionally the directory to copy the config from (this defaults to Solr's built-in "basic_configs"). For example:
 
 ```console
-$ docker run -d -P solr solr-precreate mycore
-$ docker run -d -P -v $PWD/myconfig:/myconfig solr solr-precreate mycore /myconfig
+$ docker run -d -P arm32v6/solr solr-precreate mycore
+$ docker run -d -P -v $PWD/myconfig:/myconfig arm32v6/solr solr-precreate mycore /myconfig
 ```
 
 This method stores the core in an intermediate subdirectory called "mycores". This allows you to use mounted volumes:
@@ -163,7 +150,7 @@ This method stores the core in an intermediate subdirectory called "mycores". Th
 ```console
 $ mkdir mycores
 $ sudo chown 8983:8983 mycores
-$ docker run -d -P -v $PWD/mycores:/opt/solr/server/solr/mycores solr solr-precreate mycore
+$ docker run -d -P -v $PWD/mycores:/opt/solr/server/solr/mycores arm32v6/solr solr-precreate mycore
 ```
 
 This second way is quicker, easier to monitor because it logs to the docker log, and can fail immediately if something is wrong.
@@ -178,7 +165,7 @@ With Docker Compose you can create a Solr container with the index stored in a n
 version: '2'
 services:
   solr:
-    image: solr
+    image: arm32v6/solr
     ports:
      - "8983:8983"
     volumes:
@@ -200,7 +187,7 @@ In Solr it is common to configure settings in [solr.in.sh](https://github.com/ap
 In docker-solr you can simply pass these environment variables to the container. For example:
 
 ```console
-$ docker run -d -P -e SOLR_HEAP=800m solr
+$ docker run -d -P -e SOLR_HEAP=800m arm32v6/solr
 ```
 
 This works for Solr versions newer than 6.3.0. Older versions had some hardcoded defaults in `solr.in.sh`; see `docs/set-heap.sh` for how to modify that configuration.
@@ -212,28 +199,28 @@ In Solr, it is common to specify a custom SOLR_HOME, to store cores and configur
 ```console
 $ mkdir mysolrhome
 $ sudo chown 8983:8983 mysolrhome
-$ docker run -it -v $PWD/mysolrhome:/opt/mysolrhome -e SOLR_HOME=/opt/mysolrhome solr
+$ docker run -it -v $PWD/mysolrhome:/opt/mysolrhome -e SOLR_HOME=/opt/mysolrhome arm32v6/solr
 ```
 
 Solr requires a solr.xml file and configsets in the SOLR_HOME, so you must provide that ahead of time. One way of doing that is to copy the default content before running Solr:
 
 ```console
-$ docker run -it -v $PWD/mysolrhome:/opt/mysolrhome -e SOLR_HOME=/opt/mysolrhome solr \
+$ docker run -it -v $PWD/mysolrhome:/opt/mysolrhome -e SOLR_HOME=/opt/mysolrhome arm32v6/solr \
    bash -c "cp -R /opt/solr/server/solr/* /opt/mysolrhome"
-$ docker run -it -v $PWD/mysolrhome:/opt/mysolrhome -e SOLR_HOME=/opt/mysolrhome solr
+$ docker run -it -v $PWD/mysolrhome:/opt/mysolrhome -e SOLR_HOME=/opt/mysolrhome arm32v6/solr
 ```
 
 or, in a single command:
 
 ```console
-$ docker run -it -v $PWD/mysolrhome:/opt/mysolrhome -e SOLR_HOME=/opt/mysolrhome solr \
+$ docker run -it -v $PWD/mysolrhome:/opt/mysolrhome -e SOLR_HOME=/opt/mysolrhome arm32v6/solr \
    bash -c "cp -R /opt/solr/server/solr/* /opt/mysolrhome && exec docker-entrypoint.sh solr-foreground"
 ```
 
 As an added convenience, you can pass `-e INIT_SOLR_HOME=yes` to do that automatically (if SOLR_HOME is empty):
 
 ```console
-$ docker run -it -v $PWD/mysolrhome:/opt/mysolrhome -e SOLR_HOME=/opt/mysolrhome -e INIT_SOLR_HOME=yes solr
+$ docker run -it -v $PWD/mysolrhome:/opt/mysolrhome -e SOLR_HOME=/opt/mysolrhome -e INIT_SOLR_HOME=yes arm32v6/solr
 ```
 
 ## Extending the image
@@ -251,7 +238,7 @@ echo "this is running inside the container before Solr starts"
 you can run:
 
 ```console
-$ docker run --name solr_custom1 -d -P -v $PWD/custom.sh:/docker-entrypoint-initdb.d/custom.sh solr
+$ docker run --name solr_custom1 -d -P -v $PWD/custom.sh:/docker-entrypoint-initdb.d/custom.sh arm32v6/solr
 $ sleep 5
 $ docker logs solr_custom1 | head
 /opt/docker-solr/scripts/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/set-heap.sh
@@ -275,18 +262,6 @@ You can also use legacy links, see the [Can I run ZooKeeper and Solr with Docker
 This repository is available on [github.com/docker-solr/docker-solr](https://github.com/docker-solr/docker-solr), and the official build is on the [Docker Hub](https://hub.docker.com/_/solr/).
 
 This repository is based on (and replaces) `makuk66/docker-solr`, and has been sponsored by [Lucidworks](http://www.lucidworks.com/).
-
-# Image Variants
-
-The `solr` images come in many flavors, each designed for a specific use case.
-
-## `solr:<version>`
-
-This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
-
-## `solr:<version>-slim`
-
-This image does not contain the common packages contained in the default tag and only contains the minimal packages needed to run `solr`. Unless you are working in an environment where *only* the `solr` image will be deployed and you have space constraints, we highly recommend using the default image of this repository.
 
 # License
 

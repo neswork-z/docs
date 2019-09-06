@@ -16,8 +16,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`6.2`, `6.2.1-1`, `6.2.1`, `6`, `latest`, `fresh`](https://github.com/varnish/docker-varnish/blob/62fa33d7e54b02665c4c898dd1d5234ab57e098d/fresh/debian/Dockerfile)
--	[`6.0`, `6.0.4-1`, `6.0.4`, `stable`](https://github.com/varnish/docker-varnish/blob/62fa33d7e54b02665c4c898dd1d5234ab57e098d/stable/debian/Dockerfile)
+**No supported tags found!**
+
+It is very likely that `varnish` does not support the currently selected architecture (`arm32v6`).
 
 # Quick reference
 
@@ -69,13 +70,13 @@ backend default {
 Then run:
 
 ```console
-$ docker run --name my-running-varnish -v /path/to/default.vcl:/etc/varnish/default.vcl:ro --tmpfs /usr/local/var/varnish:exec -d varnish
+$ docker run --name my-running-varnish -v /path/to/default.vcl:/etc/varnish/default.vcl:ro --tmpfs /usr/local/var/varnish:exec -d arm32v6/varnish
 ```
 
 Alternatively, a simple `Dockerfile` can be used to generate a new image that includes the necessary `default.vcl` (which is a much cleaner solution than the bind mount above):
 
 ```dockerfile
-FROM varnish:6.2
+FROM arm32v6/varnish:6.2
 
 COPY default.vcl /etc/varnish/
 ```
