@@ -16,12 +16,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`5.6.2-jdk8`, `5.6-jdk8`, `jdk8`, `5.6.2-jdk`, `5.6-jdk`, `jdk`, `5.6.2`, `5.6`, `latest`](https://github.com/keeganwitt/docker-gradle/blob/0c66ede61d8da5002f94331c471ddcf56562a9b3/jdk8/Dockerfile)
--	[`5.6.2-jre8`, `5.6-jre8`, `jre8`, `5.6.2-jre`, `5.6-jre`, `jre`](https://github.com/keeganwitt/docker-gradle/blob/0c66ede61d8da5002f94331c471ddcf56562a9b3/jre8/Dockerfile)
--	[`5.6.2-jdk11`, `5.6-jdk11`, `jdk11`](https://github.com/keeganwitt/docker-gradle/blob/0c66ede61d8da5002f94331c471ddcf56562a9b3/jdk11/Dockerfile)
--	[`5.6.2-jre11`, `5.6-jre11`, `jre11`](https://github.com/keeganwitt/docker-gradle/blob/0c66ede61d8da5002f94331c471ddcf56562a9b3/jre11/Dockerfile)
--	[`5.6.2-jdk12`, `5.6-jdk12`, `jdk12`](https://github.com/keeganwitt/docker-gradle/blob/0c66ede61d8da5002f94331c471ddcf56562a9b3/jdk12/Dockerfile)
--	[`5.6.2-jre12`, `5.6-jre12`, `jre12`](https://github.com/keeganwitt/docker-gradle/blob/0c66ede61d8da5002f94331c471ddcf56562a9b3/jre12/Dockerfile)
+**No supported tags found!**
+
+It is very likely that `gradle` does not support the currently selected architecture (`arm64v8`).
 
 # Quick reference
 
@@ -60,7 +57,7 @@ WARNING:
 
 Run this from the directory of the Gradle project you want to build.
 
-`docker run --rm -u gradle -v "$PWD":/home/gradle/project -w /home/gradle/project gradle gradle <gradle-task>`
+`docker run --rm -u gradle -v "$PWD":/home/gradle/project -w /home/gradle/project arm64v8/gradle gradle <gradle-task>`
 
 Note the above command runs using uid/gid 1000 (user *gradle*) to avoid running as root.
 
